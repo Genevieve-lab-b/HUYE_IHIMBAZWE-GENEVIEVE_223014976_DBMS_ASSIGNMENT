@@ -1,0 +1,173 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 252
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| huye2              |
+| huye3              |
+| information_schema |
+| l2bit              |
+| level2bit          |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| ruhande12          |
+| sys                |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> use ruhande;
+Database changed
+mysql> select*from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+|    1 | mugisha    | fred        | m      | kigali   | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|   10 | nise       | imanzi      | m      | east     | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> update ngoma set province='gicumbi' where gender='m';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 4  Changed: 2  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+|    1 | mugisha    | fred        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|   10 | nise       | imanzi      | m      | gicumbi  | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> alter table ngoma add column categories char(20);
+Query OK, 11 rows affected (0.04 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+mysql> select*from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number | categories |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+|    1 | mugisha    | fred        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | NULL       |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | NULL       |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 | NULL       |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 | NULL       |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 | NULL       |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 | NULL       |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 | NULL       |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 | NULL       |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | NULL       |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | NULL       |
+|   10 | nise       | imanzi      | m      | gicumbi  | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 | NULL       |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> update ngoma set categories='level1' where gender='m';
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number | categories |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+|    1 | mugisha    | fred        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | level1     |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | level1     |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 | level1     |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 | NULL       |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 | NULL       |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 | NULL       |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 | NULL       |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 | NULL       |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | NULL       |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | NULL       |
+|   10 | nise       | imanzi      | m      | gicumbi  | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 | level1     |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> update ngoma set categories='level2' where gender='f';
+Query OK, 7 rows affected (0.00 sec)
+Rows matched: 7  Changed: 7  Warnings: 0
+
+mysql> select *from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number | categories |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+|    1 | mugisha    | fred        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | level1     |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 | level1     |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 | level1     |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 | level2     |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 | level2     |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 | level2     |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 | level2     |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 | level2     |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | level2     |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 | level2     |
+|   10 | nise       | imanzi      | m      | gicumbi  | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 | level1     |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> alter table ngoma drop column categories;
+Query OK, 11 rows affected (0.04 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+mysql> select*from ngoma;
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+| id   | first_name | last_name   | gender | province | district  | sector       | cell     | email                     | tel_number |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+|    1 | mugisha    | fred        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|    2 | mukunzi    | elie        | m      | gicumbi  | gasabo    | nyamabuye    | rwaza    | mugishafre@gmail.com      | 0789076543 |
+|   11 | frank      | mugabo      | m      | gicumbi  | kageyo    | horezo       | musetsa  | frankmugabo@gmail.com     | 0788761348 |
+|    3 | gentille   | aime        | f      | gicumbi  | byumba    | gacurabwenge | mucyeri  | gentilleaime@gmail.com    | 0789761348 |
+|    5 | murekatete | kellen      | f      | south    | nyagatare | rwimiyaga    | kamagiri | murekateyekelle@gmail.com | 0791002733 |
+|    6 | charlene   | mukamugisha | f      | kigali   | kicukiro  | gikondo      | kagunga  | charle@gmail.com          | 0789876543 |
+|    7 | belyse     | ashimwe     | f      | east     | kayonza   | kabarondo    | munini   | ashi@gmail.com            | 0709876543 |
+|    8 | iggy       | waa         | f      | north    | rulindo   | kinihira     | muyange  | igg@gmail.com             | 0709876943 |
+|    8 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|    9 | leah       | irakoze     | f      | north    | gicumbi   | kabuga       | rubaya   | leah@gmail.com            | 0700876943 |
+|   10 | nise       | imanzi      | m      | gicumbi  | gatsibo   | remera       | kagugu   | nise@gmail.com            | 0700876983 |
++------+------------+-------------+--------+----------+-----------+--------------+----------+---------------------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> select *from ngoma where gender='m' and province='gicumbi';
++------+------------+-----------+--------+----------+----------+-----------+---------+-----------------------+------------+
+| id   | first_name | last_name | gender | province | district | sector    | cell    | email                 | tel_number |
++------+------------+-----------+--------+----------+----------+-----------+---------+-----------------------+------------+
+|    1 | mugisha    | fred      | m      | gicumbi  | gasabo   | nyamabuye | rwaza   | mugishafre@gmail.com  | 0789076543 |
+|    2 | mukunzi    | elie      | m      | gicumbi  | gasabo   | nyamabuye | rwaza   | mugishafre@gmail.com  | 0789076543 |
+|   11 | frank      | mugabo    | m      | gicumbi  | kageyo   | horezo    | musetsa | frankmugabo@gmail.com | 0788761348 |
+|   10 | nise       | imanzi    | m      | gicumbi  | gatsibo  | remera    | kagugu  | nise@gmail.com        | 0700876983 |
++------+------------+-----------+--------+----------+----------+-----------+---------+-----------------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> ^C
+mysql>
